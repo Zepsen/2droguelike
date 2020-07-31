@@ -4,7 +4,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     public BoardManager board;
-    
+
+    public int playerFoodPoints = 100;
+    [HideInInspector] public bool playersTurn = true;
+
     private int level = 3;
     // Start is called before the first frame update
     void Awake()
@@ -19,6 +22,10 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         board = GetComponent<BoardManager>();
         InitGame();   
+    }
+
+    public void GameOver() {
+        enabled = false;
     }
 
     private void InitGame()
