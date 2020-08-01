@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     private bool enemiesMoving;
 
     // Start is called before the first frame update
+    void Start() {
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Awake()
     {
         if (instance == null)
@@ -29,7 +33,6 @@ public class GameManager : MonoBehaviour
         }
 
         enemies = new List<Enemy>();
-        DontDestroyOnLoad(gameObject);
         board = GetComponent<BoardManager>();
         InitGame();
     }

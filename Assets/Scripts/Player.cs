@@ -90,7 +90,7 @@ public class Player : MovingObject
         if (horizontal != 0)
             vertical = 0;
 
-        if (horizontal != 0 && vertical != 0)
+        if (horizontal != 0 || vertical != 0)
         {
             AttemtMove<Wall>(horizontal, vertical);
         }
