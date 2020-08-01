@@ -84,7 +84,7 @@ public class Player : MovingObject
         int horizontal = 0;
         int vertical = 0;
 
-        horizontal = (int)Input.GetAxisRaw("Horizontal");
+        horizontal = (int)(Input.GetAxisRaw("Horizontal"));
         vertical = (int)Input.GetAxisRaw("Vertical");
 
         if (horizontal != 0)
