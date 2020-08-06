@@ -23,7 +23,7 @@ public class Player : MovingObject
         base.Start();
     }
 
-    void OnDisabled()
+    void OnDisable()
     {
         GameManager.instance.playerFoodPoints = food;
     }

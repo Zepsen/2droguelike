@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     public float turnDelay = .1f;
 
-    public int playerFoodPoints;
+    public int playerFoodPoints = 100;
     [HideInInspector] public bool playersTurn = true;
 
     private Text lvlText;
@@ -30,8 +30,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Awake()
-    {
-        playerFoodPoints = 100;
+    {        
         SceneManager.sceneLoaded += this.OnLevelLoaded;
         if (instance == null)
         {
