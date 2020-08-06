@@ -15,10 +15,10 @@ public class Player : MovingObject
     protected override void Start()
     {
         animator = GetComponent<Animator>();
-        // foodText = GameObject.Find("LevelText").GetComponent<Text>();
+        foodText = GameObject.Find("FoodText").GetComponent<Text>();
 
         food = GameManager.instance.playerFoodPoints;
-        // foodText.text = $"Food: {food}";
+        foodText.text = $"Food: {food}";
 
         base.Start();
     }

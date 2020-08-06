@@ -26,12 +26,12 @@ public class GameManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        SceneManager.sceneLoaded += this.OnLevelLoaded;
         DontDestroyOnLoad(gameObject);
     }
 
     void Awake()
     {
+        SceneManager.sceneLoaded += this.OnLevelLoaded;
         if (instance == null)
         {
             instance = this;
