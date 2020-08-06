@@ -66,10 +66,5 @@ public abstract class MovingObject : MonoBehaviour
     protected abstract void OnCantMove<T>(T component)
         where T : Component;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-
-    }
 
 }
