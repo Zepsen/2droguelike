@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MovingObject
 {
@@ -6,6 +7,7 @@ public class Player : MovingObject
     public int pointsPerFood = 10;
     public int pointsPerSode = 20;
     public float restartDelay = 1f;
+    public Text foodText;
 
     private Animator animator;
     private int food;
@@ -13,8 +15,10 @@ public class Player : MovingObject
     protected override void Start()
     {
         animator = GetComponent<Animator>();
+        // foodText = GameObject.Find("LevelText").GetComponent<Text>();
 
         food = GameManager.instance.playerFoodPoints;
+        // foodText.text = $"Food: {food}";
 
         base.Start();
     }
@@ -33,6 +37,7 @@ public class Player : MovingObject
     protected override void AttemtMove<T>(int xdir, int ydir)
     {
         food--;
+        foodText.text = $"Food: {food}";
 
         base.AttemtMove<T>(xdir, ydir);
         RaycastHit2D hit2D;
@@ -56,6 +61,7 @@ public class Player : MovingObject
     {
         animator.SetTrigger("playerHit");
         food -= loss;
+        foodText.text = $"-{pointsPerFood} Food: {food}";
         CheckIfGameOver();
     }
 
@@ -67,10 +73,12 @@ public class Player : MovingObject
                 break;
             case "Food":
                 food += pointsPerFood;
+                foodText.text = $"+{pointsPerFood} Food: {food}";
                 other.gameObject.SetActive(false);
                 break;
             case "Soda":
                 food += pointsPerSode;
+                foodText.text = $"+{pointsPerSode} Food: {food}";
                 other.gameObject.SetActive(false);
                 break;
         }
